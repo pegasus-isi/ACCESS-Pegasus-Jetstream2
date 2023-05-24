@@ -1,0 +1,4 @@
+ @reboot        root   timeout 10m salt-call --local state.highstate >/var/log/salt-highstate.log.running 2>&1; mv /var/log/salt-highstate.log.running /var/log/salt-highstate.log >/dev/null 2>&1
+
+ */5 *  * * *   root   timeout 10m salt-call --local state.highstate >/var/log/salt-highstate.log.running 2>&1; mv /var/log/salt-highstate.log.running /var/log/salt-highstate.log >/dev/null 2>&1
+
