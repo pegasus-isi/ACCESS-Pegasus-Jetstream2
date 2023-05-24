@@ -5,7 +5,9 @@ ACCESS_TOKEN=$2
 
 echo "Updating /etc/condor/config.d/50-user.conf ..."
 cat >/etc/condor/config.d/50-user.conf <<EOF
-START = (RemoteOwner == "$ACCESS_USER")
+START = (TARGET.Owner == "$ACCESS_USER")
+AnnexName = "$ACCESS_USER"
+STARTD_ATTRS = \$(STARTD_ATTRS) AnnexName
 EOF
 
 echo "Updating /etc/condor/tokens.d/access-pegasus.token ..."
