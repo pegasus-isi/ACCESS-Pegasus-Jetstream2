@@ -9,6 +9,13 @@ htcondor-packages:
     - pkgs:
       - condor
 
+/etc/condor/master_shutdown.sh:
+  file.managed:
+    - user: root
+    - group: root
+    - mode: 755
+    - source: salt://htcondor/master_shutdown.sh
+
 /etc/condor/config.d/10-main.conf:
   file:
     - managed
@@ -20,7 +27,5 @@ condor:
     - reload: True
     - watch:
       - file: /etc/condor/config.d/10-main.conf
-
-
 
 
