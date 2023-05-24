@@ -1,7 +1,12 @@
 #!/bin/bash
 
+salt-call --local state.highstate
+
 rm -f /etc/condor/tokens.d/access-pegasus.token
 rm -f /etc/condor/config.d/50-user.conf
+
+systemctl stop condor
+rm -rf /var/log/condor/*
 
 dnf -y clean all
 dnf -y upgrade
