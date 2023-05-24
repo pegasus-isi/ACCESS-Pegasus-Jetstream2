@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rm -f /etc/condor/tokens.d/access-pegasus.token
+rm -f /etc/condor/config.d/50-user.conf
+
+dnf -y clean all
+dnf -y upgrade
+

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+ACCESS_USER=$1
+ACCESS_TOKEN=$2
+
+echo "Updating /etc/condor/config.d/50-user.conf ..."
+cat >/etc/condor/config.d/50-user.conf <<EOF
+START = (RemoteOwner == "$ACCESS_USER")
+EOF
+
+echo "Updating /etc/condor/tokens.d/access-pegasus.token ..."
+echo "$ACCESS_TOKEN" >/etc/condor/tokens.d/access-pegasus.token
+chmod 600 /etc/condor/tokens.d/access-pegasus.token
+chown condor:condor /etc/condor/tokens.d/access-pegasus.token
+
+
