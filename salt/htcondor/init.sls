@@ -26,6 +26,9 @@ htcondor-packages:
   file:
     - managed
     - source: salt://htcondor/50-testpool.conf
+/etc/condor/config.d/50-user.conf:
+  file:
+    - absent
 {% else %}
 /etc/condor/config.d/50-testpool.conf:
   file:
