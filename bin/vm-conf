@@ -13,6 +13,6 @@ EOF
 echo "Updating /etc/condor/tokens.d/access-pegasus.token ..."
 echo "$ACCESS_TOKEN" >/etc/condor/tokens.d/access-pegasus.token
 chmod 600 /etc/condor/tokens.d/access-pegasus.token
-chown condor:condor /etc/condor/tokens.d/access-pegasus.token
+chown root:root /etc/condor/tokens.d/access-pegasus.token
 
 
